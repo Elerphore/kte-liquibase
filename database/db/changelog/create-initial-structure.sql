@@ -1,5 +1,4 @@
 -- liquibase formatted sql
-
 -- changeset elerphore:1
 
 create table discounts

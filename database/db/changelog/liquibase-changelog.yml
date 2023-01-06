@@ -1,5 +1,10 @@
 databaseChangeLog:
-  - include:
-      file: database/db/changelog/create-initial-structure.sql
-  - include:
-      file: database/db/changelog/insert-into-initial-structure.sql
+  - changeSet:
+      id: 1
+      author: elerphore
+      runAlways: true
+      changes:
+        - sqlFile:
+            path: "database/db/changelog/create-initial-structure.sql"
+        - sqlFile:
+            path: "database/db/changelog/insert-into-initial-structure.sql"

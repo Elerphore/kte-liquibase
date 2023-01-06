@@ -1,5 +1,4 @@
 -- liquibase formatted sql
-
 -- changeset elerphore:2
 
 insert into discounts(discount_value)
