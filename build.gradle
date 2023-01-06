@@ -1,0 +1,43 @@
+plugins {
+    id 'groovy'
+    id 'org.liquibase.gradle' version '2.0.4'
+}
+
+group 'kte.liqubase'
+version '1.0-SNAPSHOT'
+sourceCompatibility = '1.8'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.apache.groovy:groovy:4.0.2'
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
+
+    implementation 'org.liquibase:liquibase-core:4.18.0'
+    implementation 'org.postgresql:postgresql:42.2.18'
+
+    liquibaseRuntime 'org.liquibase:liquibase-core:4.18.0'
+    liquibaseRuntime 'org.liquibase:liquibase-groovy-dsl:2.1.1'
+    liquibaseRuntime 'org.postgresql:postgresql:42.2.18'
+}
+
+apply plugin: "org.liquibase.gradle"
+
+test {
+    useJUnitPlatform()
+}
+
+liquibase {
+    activities {
+        main {
+            changelogFile "database/db/changelog/liquibase-changelog.yml"
+            driver 'org.postgresql.Driver'
+            url 'jdbc:postgresql://127.0.0.1:5432/develop'
+            username 'develop'
+            password 'develop'
+        }
+    }
+}

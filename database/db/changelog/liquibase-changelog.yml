@@ -1,0 +1,5 @@
+databaseChangeLog:
+  - include:
+      file: database/db/changelog/create-initial-structure.sql
+  - include:
+      file: database/db/changelog/insert-into-initial-structure.sql
